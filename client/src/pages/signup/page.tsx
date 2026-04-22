@@ -2,10 +2,10 @@ import React, { useState } from 'react';
 import { Box, Card, Typography, TextField, Button, AppBar, Toolbar  } from '@mui/material';
 import { Link } from 'react-router-dom';
 import axios from "axios";
-import '../App.css';
-import Appbar from '../components/appbar';
-import { createAccount } from '../services/account_service';
-import { createUser } from '../services/user_service';
+import '../../App.css';
+import Appbar from '../../components/AppBar';
+import { createAccount } from '../../services/account_service';
+import { createUser } from '../../services/user_service';
 
 function Signup() {
     const [formData, setFormData] = useState({

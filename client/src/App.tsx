@@ -1,10 +1,10 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
-import Signup from './pages/signup';
+import Signup from './pages/signup/page';
 import { Route, Routes } from 'react-router-dom';
-import Login from './pages/login';
-import Dashboard from './pages/dashboard/dashboard';
+import Login from './pages/login/page';
+import Dashboard from './pages/dashboard/page';
 
 function App() {
   return (

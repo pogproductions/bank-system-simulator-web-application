@@ -2,13 +2,13 @@ import { useState } from 'react';
 import React from 'react';
 import { Box, Card, Typography, TextField, Button, AppBar, Toolbar } from '@mui/material';
 import { Link } from 'react-router-dom';
-import Appbar from '../../../components/appbar';
+import Appbar from '../../components/AppBar';
 
-function Transactions() {
+function Login() {
 
     const [formData, setFormData] = useState({
-        transactionType: '',
-        amount: ''
+        email: '',
+        password: ''
     });
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -27,7 +27,7 @@ function Transactions() {
             <Box display="flex" justifyContent="center" alignItems="center" minHeight="100vh">
                 <Card elevation={2} sx={{ padding: 4, maxWidth: 400, width: '100%' }}>
                     <Typography variant="h4" fontWeight={'bolder'} mb={2} textAlign="center">
-                        Transactions
+                        Login
                     </Typography>
                     <form onSubmit={handleSubmit}>
                         <TextField
@@ -37,7 +37,7 @@ function Transactions() {
                             variant="outlined"
                             fullWidth
                             margin="normal"
-                            value={formData.transactionType}
+                            value={formData.email}
                             onChange={handleChange}
                         ></TextField>
                         <TextField
@@ -47,14 +47,14 @@ function Transactions() {
                             variant="outlined"
                             fullWidth
                             margin="normal"
-                            value={formData.amount}
+                            value={formData.password}
                             onChange={handleChange}    
                         ></TextField>
                         <Button type="submit" variant="contained" color="primary" fullWidth sx={{ mt: 2, textTransform: 'uppercase',
                         fontWeight: 600,
                         bgcolor: '#0B3D91',
                         '&:hover': { bgcolor: '#092C6B' } }}>
-                            Submit
+                            Login
                         </Button>
                     </form>
                 </Card>
@@ -63,4 +63,4 @@ function Transactions() {
     );
 }
 
-export default Transactions
+export default Login

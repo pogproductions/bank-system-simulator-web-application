@@ -2,13 +2,13 @@ import { useState } from 'react';
 import React from 'react';
 import { Box, Card, Typography, TextField, Button, AppBar, Toolbar } from '@mui/material';
 import { Link } from 'react-router-dom';
-import Appbar from '../components/appbar';
+import Appbar from '../../../components/AppBar';
 
-function Login() {
+function Transactions() {
 
     const [formData, setFormData] = useState({
-        email: '',
-        password: ''
+        transactionType: '',
+        amount: ''
     });
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -27,7 +27,7 @@ function Login() {
             <Box display="flex" justifyContent="center" alignItems="center" minHeight="100vh">
                 <Card elevation={2} sx={{ padding: 4, maxWidth: 400, width: '100%' }}>
                     <Typography variant="h4" fontWeight={'bolder'} mb={2} textAlign="center">
-                        Login
+                        Transactions
                     </Typography>
                     <form onSubmit={handleSubmit}>
                         <TextField
@@ -37,7 +37,7 @@ function Login() {
                             variant="outlined"
                             fullWidth
                             margin="normal"
-                            value={formData.email}
+                            value={formData.transactionType}
                             onChange={handleChange}
                         ></TextField>
                         <TextField
@@ -47,14 +47,14 @@ function Login() {
                             variant="outlined"
                             fullWidth
                             margin="normal"
-                            value={formData.password}
+                            value={formData.amount}
                             onChange={handleChange}    
                         ></TextField>
                         <Button type="submit" variant="contained" color="primary" fullWidth sx={{ mt: 2, textTransform: 'uppercase',
                         fontWeight: 600,
                         bgcolor: '#0B3D91',
                         '&:hover': { bgcolor: '#092C6B' } }}>
-                            Login
+                            Submit
                         </Button>
                     </form>
                 </Card>
@@ -63,4 +63,4 @@ function Login() {
     );
 }
 
-export default Login
+export default Transactions

@@ -5,6 +5,8 @@ import Signup from './pages/signup/page';
 import { Route, Routes } from 'react-router-dom';
 import Login from './pages/login/page';
 import Dashboard from './pages/dashboard/page';
+import Transactions from './pages/dashboard/transactions/page';
+import CreateAccount from './pages/dashboard/createAccount/page';
 
 function App() {
   return (
@@ -12,6 +14,8 @@ function App() {
       <Route path='/signup' element={<Signup></Signup>} ></Route>
       <Route path='/login' element={<Login></Login>} ></Route>
       <Route path='/dashboard' element={<Dashboard></Dashboard>} ></Route>
+      <Route path='/dashboard/transactions' element={<Transactions></Transactions>} ></Route>
+      <Route path='/dashboard/createAccount' element={<CreateAccount></CreateAccount>} ></Route>
       <Route path="/" element={<Signup />} /> {/* default route */}
     </Routes>
   );

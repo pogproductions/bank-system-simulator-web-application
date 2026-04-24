@@ -1,17 +1,16 @@
 import React, { useState } from 'react';
-import { Box, Card, Typography, TextField, Button, AppBar, Toolbar  } from '@mui/material';
+import { Box, Card, Typography, TextField, Button, AppBar, Toolbar, Menu, MenuItem  } from '@mui/material';
 import { Link } from 'react-router-dom';
 import axios from "axios";
-import '../../App.css';
-import Appbar from '../../components/AppBar';
-import { createUser } from '../../services/user_service';
+import '../../../App.css';
+import Appbar from '../../../components/AppBar';
+import { createUser } from '../../../services/user_service';
+import { createAccount } from '../../../services/account_service';
 
-function Signup() {
+function CreateAccount() {
     const [formData, setFormData] = useState({
-        name: '',
-        role: 'USER' as string,
-        email: '',
-        timestamp: new Date().toISOString(),
+        accountType: 'CHECKING' as string,
+        balance: 0 as number,
         accounts: [],
         password: ''
     });
@@ -24,21 +23,21 @@ function Signup() {
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         console.log('Signup data:', formData);
-        // Add signup logic here
+        // Add bank account creation logic here
 
-        const user = {
-            name: formData.name,
-            role: formData.role,
-            email: formData.email,
-            timestamp: formData.timestamp,
-            accounts: formData.accounts
+        const account = {
+            accountType: formData.accountType,
+            balance: formData.balance,
+            accounts: formData.accounts,
+            userId: 1 // hardcoded for now, will change later
+
         };
 
         try {
-            const response = await createUser(user);
-            console.log('User created:', response);
-        } catch (err) {
-            console.error("Error creating user");
+            await createAccount(account);
+            console.log('Bank account created successfully!');
+        } catch (error) {
+            console.error('Error creating bank account:', error);
         }
 
     };
@@ -49,33 +48,36 @@ function Signup() {
             <Box className="Box" display="flex" justifyContent="center" alignItems="center" minHeight="100vh">
                 <Card elevation={2} className='Card' sx={{ padding: 4, maxWidth: 400, width: '100%' }}>
                     <Typography className='Header' fontWeight={'bolder'} variant="h4" mb={2} textAlign="center">
-                        Bank System Signup
+                        Create Bank Account
                     </Typography>
                     <form onSubmit={handleSubmit}>
                         <TextField
-                            label="Name"
-                            name="name"
-                            type="text"
+                            select
+                            label="Account Type"
+                            name="accountType"
+                            fullWidth
+                            margin="normal"
+                            value={formData.accountType}
+                            onChange={handleChange}
+                        >
+                            <MenuItem value="CHECKING">Checking</MenuItem>
+                            <MenuItem value="SAVINGS">Savings</MenuItem>
+                        </TextField>
+                        <TextField
+                            label="Balance"
+                            name="balance"
+                            type="number"
                             variant="outlined"
                             fullWidth
                             margin="normal"
-                            value={formData.name}
+                            value={formData.balance}
                             onChange={handleChange}
                         ></TextField>
                         <TextField
-                            label="Email"
-                            name="email"
-                            type="email"
-                            variant="outlined"
-                            fullWidth
-                            margin="normal"
-                            value={formData.email}
-                            onChange={handleChange}
-                        ></TextField>
-                        <TextField
-                            label="Password"
-                            name="password"
+                            label="Confirm Password"
+                            name="confirmPassword"
                             type="password"
+                            required
                             variant="outlined"
                             fullWidth
                             margin="normal"
@@ -86,14 +88,13 @@ function Signup() {
                         fontWeight: 600,
                         bgcolor: '#0B3D91',
                         '&:hover': { bgcolor: '#092C6B' } }}>
-                            Sign Up
+                            Create Bank Account
                         </Button>
                     </form>
-                    <Typography>Already have an account? <Link to='/login' >Login</Link></Typography>
                 </Card>
             </Box>
         </div>
     );
 }
 
-export default Signup;
+export default CreateAccount;

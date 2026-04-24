@@ -65,10 +65,10 @@ function Dashboard() {
 
                 <Box sx={{ display: 'flex', justifyContent: 'center', gap: 2, flexWrap: 'wrap', mt: 2 }}>
 
-                    <InfoCard ClassName="balanceCard" Title="Checking Account" Icon={<AccountBalanceWalletIcon />} Value="$700.32" Subtitle="Checking + Saving Accounts"></InfoCard>
-                    <InfoCard ClassName="creditCard" Title="Savings Account" Icon={<CreditCardIcon />} Value="$300.32" Subtitle="Total Credit Card Debt"></InfoCard>
-                    <InfoCard ClassName="networthCard" Title="Credit Card" Icon={<CreditCardIcon />} Value="$800.32" Subtitle="Total Assets minus Debts"></InfoCard>
-                    <InfoCard ClassName="rewardsCard" Title="Debit Card" Icon={<CreditCardIcon />} Value="1200" Subtitle="Total Reward Points"></InfoCard>
+                    <InfoCard ClassName="balanceCard" Title="Checking Account" Icon={<AccountBalanceWalletIcon />} Value="$700.32" Subtitle="Checking Account"></InfoCard>
+                    <InfoCard ClassName="creditCard" Title="Savings Account" Icon={<CreditCardIcon />} Value="$300.32" Subtitle="Savings Account"></InfoCard>
+                    <InfoCard ClassName="networthCard" Title="Credit Card" Icon={<CreditCardIcon />} Value="$800.32" Subtitle="Credit Card"></InfoCard>
+                    <InfoCard ClassName="rewardsCard" Title="Debit Card" Icon={<CreditCardIcon />} Value="1200" Subtitle="Debit Card"></InfoCard>
 
                 </Box>
 

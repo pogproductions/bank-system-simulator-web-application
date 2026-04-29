@@ -6,6 +6,7 @@ import '../../../App.css';
 import Appbar from '../../../components/AppBar';
 import { createUser } from '../../../services/user_service';
 import { createAccount } from '../../../services/account_service';
+import { bgcolor, fontweight, hoverbgcolor, uppercase } from '../../../themes/theme';
 
 function CreateAccount() {
     const [formData, setFormData] = useState({
@@ -84,10 +85,10 @@ function CreateAccount() {
                             value={formData.password}
                             onChange={handleChange}    
                         ></TextField>
-                        <Button type="submit" variant="contained" color="primary" fullWidth sx={{ mt: 2, textTransform: 'uppercase',
-                        fontWeight: 600,
-                        bgcolor: '#0B3D91',
-                        '&:hover': { bgcolor: '#092C6B' } }}>
+                        <Button type="submit" variant="contained" color="primary" fullWidth sx={{ mt: 2, textTransform: uppercase,
+                        fontWeight: fontweight,
+                        bgcolor: bgcolor,
+                        '&:hover': { bgcolor: hoverbgcolor } }}>
                             Create Bank Account
                         </Button>
                     </form>

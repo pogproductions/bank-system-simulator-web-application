@@ -3,6 +3,7 @@ import React from 'react';
 import { Box, Card, Typography, TextField, Button, AppBar, Toolbar } from '@mui/material';
 import { Link } from 'react-router-dom';
 import Appbar from '../../components/AppBar';
+import { bgcolor, fontweight, hoverbgcolor, uppercase } from '../../themes/theme';
 
 function Login() {
 
@@ -50,10 +51,10 @@ function Login() {
                             value={formData.password}
                             onChange={handleChange}    
                         ></TextField>
-                        <Button type="submit" variant="contained" color="primary" fullWidth sx={{ mt: 2, textTransform: 'uppercase',
-                        fontWeight: 600,
-                        bgcolor: '#0B3D91',
-                        '&:hover': { bgcolor: '#092C6B' } }}>
+                        <Button type="submit" variant="contained" color="primary" fullWidth sx={{ mt: 2, textTransform: uppercase,
+                        fontWeight: fontweight,
+                        bgcolor: bgcolor,
+                        '&:hover': { bgcolor: hoverbgcolor } }}>
                             Login
                         </Button>
                     </form>

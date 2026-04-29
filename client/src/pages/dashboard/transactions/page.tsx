@@ -6,6 +6,7 @@ import Appbar from '../../../components/AppBar';
 import { MenuItem } from '@mui/material';
 import { createTransaction } from '../../../services/transactions_service';
 import { Transaction } from '../../../interfaces/transaction_interface';
+import { bgcolor, fontweight, hoverbgcolor, uppercase } from '../../../themes/theme';
 
 function Transactions() {
 
@@ -81,7 +82,7 @@ function Transactions() {
                             disabled={!formData.type || formData.amount <= 0} 
                             variant="contained" 
                             color="primary" 
-                            fullWidth sx={{ mt: 2, textTransform: 'uppercase', fontWeight: 600, bgcolor: '#0B3D91', '&:hover': { bgcolor: '#092C6B' } }}
+                            fullWidth sx={{ mt: 2, textTransform: uppercase, fontWeight: fontweight, bgcolor: bgcolor, '&:hover': { bgcolor: hoverbgcolor } }}
                             >
                             Submit
                         </Button>

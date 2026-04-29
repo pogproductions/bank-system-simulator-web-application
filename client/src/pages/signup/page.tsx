@@ -5,6 +5,7 @@ import axios from "axios";
 import '../../App.css';
 import Appbar from '../../components/AppBar';
 import { createUser } from '../../services/user_service';
+import { bgcolor, fontweight, hoverbgcolor, uppercase } from '../../themes/theme';
 
 function Signup() {
     const [formData, setFormData] = useState({
@@ -82,10 +83,10 @@ function Signup() {
                             value={formData.password}
                             onChange={handleChange}    
                         ></TextField>
-                        <Button type="submit" variant="contained" color="primary" fullWidth sx={{ mt: 2, textTransform: 'uppercase',
-                        fontWeight: 600,
-                        bgcolor: '#0B3D91',
-                        '&:hover': { bgcolor: '#092C6B' } }}>
+                        <Button type="submit" variant="contained" color="primary" fullWidth sx={{ mt: 2, textTransform: uppercase,
+                        fontWeight: fontweight,
+                        bgcolor: bgcolor,
+                        '&:hover': { bgcolor: hoverbgcolor } }}>
                             Sign Up
                         </Button>
                     </form>

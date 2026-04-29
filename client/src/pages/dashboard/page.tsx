@@ -9,6 +9,7 @@ import { Link } from "react-router-dom";
 import Appbar from "../../components/AppBar";
 import InfoCard from "../../components/InfoCard";
 import { Info } from "@mui/icons-material";
+import { bgcolor, fontweight, hoverbgcolor, uppercase } from "../../themes/theme";
 
 function Dashboard() {
 
@@ -27,10 +28,10 @@ function Dashboard() {
                             variant="contained"
                             color="primary"
                             sx={{
-                                textTransform: 'uppercase',
-                                fontWeight: 600,
-                                bgcolor: '#0B3D91',
-                                '&:hover': { bgcolor: '#092C6B' }
+                                textTransform: uppercase,
+                                fontWeight: fontweight,
+                                bgcolor: bgcolor,
+                                '&:hover': { bgcolor: hoverbgcolor }
                             }}
                         >
                             <VisibilityOffIcon sx={{ mr: 1 }}></VisibilityOffIcon> Hide Balances
@@ -39,10 +40,10 @@ function Dashboard() {
                             variant="contained"
                             color="primary"
                             sx={{
-                                textTransform: 'uppercase',
-                                fontWeight: 600,
-                                bgcolor: '#0B3D91',
-                                '&:hover': { bgcolor: '#092C6B' }
+                                textTransform: uppercase,
+                                fontWeight: fontweight,
+                                bgcolor: bgcolor,
+                                '&:hover': { bgcolor: hoverbgcolor }
                             }}
                         >
                             <AddIcon sx={{ mr: 1 }}></AddIcon> Deposit / Withdraw

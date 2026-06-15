@@ -8,25 +8,29 @@ import { createUser } from '../../services/user_service';
 import { bgcolor, fontweight, hoverbgcolor, uppercase } from '../../themes/theme';
 
 function Signup() {
+    // this is the data that will be sent to the backend to create a new user, I added some default values for the role, timestamp and accounts for the time being
     const [formData, setFormData] = useState({
         name: '',
-        role: 'USER' as string,
+        role: 'USER' as string, // this is the default, manually if needed I can change specfic users that work at the bank to have the role of "EMPLOYEE" or "ADMIN"
         email: '',
         timestamp: new Date().toISOString(),
-        accounts: [],
+        accounts: [], // my goal for this is to hold the users savings and checking accounts, but I can change it if needed
         password: ''
     });
 
+    // this function will update the formData state whenever the user types in the input fields
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
 
         setFormData({ ...formData, [e.target.name]: e.target.value });
     };
 
+    // this function gets called when the user submits the form, it will send the formData to the backend to create a new user
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         console.log('Signup data:', formData);
-        // Add signup logic here
+        // Signup logic here
 
+        // This variable holds all the form data in a table like format to send to the users table in the database
         const user = {
             name: formData.name,
             role: formData.role,
@@ -35,6 +39,7 @@ function Signup() {
             accounts: formData.accounts
         };
 
+        // Call the createUser function from user_service to send the data to the backend and create a new user
         try {
             const response = await createUser(user);
             console.log('User created:', response);

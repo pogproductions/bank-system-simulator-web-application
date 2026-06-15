@@ -7,6 +7,7 @@ import { bgcolor, fontweight, hoverbgcolor, uppercase } from '../../themes/theme
 
 function Login() {
 
+    // Only the email and password will be checked to valid the user login
     const [formData, setFormData] = useState({
         email: '',
         password: ''
@@ -17,9 +18,11 @@ function Login() {
     };
 
     const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-        e.preventDefault();
+        e.preventDefault(); // Temperary for now, this prevents the page from reloading
         console.log('Login data:', formData);
         // Add login logic here
+        // The login data will be coded once the backend is ready to receive the data and process it accordingly
+        // Personally I like to get the signup to add the user to the database and then use the same data to login, but I can change it if needed
     };
 
     return (

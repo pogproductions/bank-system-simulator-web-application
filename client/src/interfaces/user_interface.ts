@@ -1,6 +1,6 @@
 export interface User {
     id?: number; // may change later
-    name: string;
+    username: string;
     role: string;
     email: string;
     timestamp: string;

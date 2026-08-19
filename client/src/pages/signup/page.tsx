@@ -10,7 +10,7 @@ import { bgcolor, fontweight, hoverbgcolor, uppercase } from '../../themes/theme
 function Signup() {
     // this is the data that will be sent to the backend to create a new user, I added some default values for the role, timestamp and accounts for the time being
     const [formData, setFormData] = useState({
-        name: '',
+        username: '',
         role: 'USER' as string, // this is the default, manually if needed I can change specfic users that work at the bank to have the role of "EMPLOYEE" or "ADMIN"
         email: '',
         timestamp: new Date().toISOString(),
@@ -32,11 +32,12 @@ function Signup() {
 
         // This variable holds all the form data in a table like format to send to the users table in the database
         const user = {
-            name: formData.name,
+            username: formData.username,
             role: formData.role,
             email: formData.email,
             timestamp: formData.timestamp,
-            accounts: formData.accounts
+            accounts: formData.accounts,
+            password: formData.password
         };
 
         // Call the createUser function from user_service to send the data to the backend and create a new user
@@ -59,13 +60,13 @@ function Signup() {
                     </Typography>
                     <form onSubmit={handleSubmit}>
                         <TextField
-                            label="Name"
-                            name="name"
+                            label="Username"
+                            name="username"
                             type="text"
                             variant="outlined"
                             fullWidth
                             margin="normal"
-                            value={formData.name}
+                            value={formData.username}
                             onChange={handleChange}
                         ></TextField>
                         <TextField
